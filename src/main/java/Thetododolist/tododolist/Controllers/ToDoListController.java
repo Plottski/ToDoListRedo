@@ -37,6 +37,7 @@ public class ToDoListController {
 
         @RequestMapping(path = "/login", method = RequestMethod.POST)
         public User userLogin(HttpSession session, @RequestBody User user) {
+            System.out.println(user);
             User userFromDB = users.findByUserName(user.getUserName());
             return userFromDB;
         }

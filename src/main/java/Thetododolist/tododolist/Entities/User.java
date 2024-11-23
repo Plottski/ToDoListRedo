@@ -9,31 +9,32 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import org.springframework.security.core.parameters.P;
 import java.util.ArrayList;
+import java.io.Serializable;
 
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
     private long id;
 
     @Column(nullable = false)
-    private String userName;
+    String userName;
 
     @Column(nullable = false)
-    private String email;
+    String email;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(nullable = false)
-    private String passWord;
+    String passWord;
 
     @Column
-    private boolean isLoggedIn;
+    boolean isLoggedIn;
 
     @Column
-    private ArrayList<User> collaborators;
+    ArrayList<User> collaborators;
 
     public User() {
     }
