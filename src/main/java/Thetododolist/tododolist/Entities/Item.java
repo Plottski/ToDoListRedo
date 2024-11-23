@@ -3,11 +3,12 @@ package Thetododolist.tododolist.Entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "items")
-public class Item {
+public class Item implements Serializable {
 
     @Id
     @GeneratedValue

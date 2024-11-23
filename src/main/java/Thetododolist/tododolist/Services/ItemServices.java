@@ -41,9 +41,9 @@ public class ItemServices {
     @RequestMapping(path = "/delete-item", method = RequestMethod.DELETE)
     public ResponseEntity<Item> deleteItemFromDB(HttpSession session, @RequestBody Item item) throws
             PasswordStorage.CannotPerformOperationException {
-        String uName = (String) session.getAttribute("userName");
+        String uName = (String) session.getAttribute("creator");
         if (User.isValidUser(users.findByUserName(uName)) != null) {
-            if (items.findById(item.getId()).isPresent()) {
+            if (items.findById(item.getId())!=null) {
                 items.delete(item);
                 return new ResponseEntity<Item>(item, HttpStatus.OK);
             }

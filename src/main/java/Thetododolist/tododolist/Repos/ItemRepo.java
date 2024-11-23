@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public interface ItemRepo extends CrudRepository<Item, Integer> {
     ArrayList<Item> findAll();
-    Item findByUserName(String userName);
-    Item findByID(int id);
+    Item findByCreator(User user);
+    Item findById(int id);
 
 }

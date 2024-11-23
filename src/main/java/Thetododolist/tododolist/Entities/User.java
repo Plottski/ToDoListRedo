@@ -6,11 +6,12 @@ import jakarta.persistence.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.parameters.P;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
