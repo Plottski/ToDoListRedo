@@ -43,7 +43,7 @@ public class ItemServices {
             PasswordStorage.CannotPerformOperationException {
         String uName = (String) session.getAttribute("creator");
         if (User.isValidUser(users.findByUserName(uName)) != null) {
-            if (items.findById(item.getId())!= null) {
+            if (items.findById(item.getId())!=null) {
                 items.delete(item);
                 return new ResponseEntity<Item>(item, HttpStatus.OK);
             }
