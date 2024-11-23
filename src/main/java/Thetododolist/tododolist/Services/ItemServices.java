@@ -38,7 +38,7 @@ public class ItemServices {
         return new ResponseEntity<Item>(newItem, HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/delete-item", method = RequestMethod.DELETE)
+   /* @RequestMapping(path = "/delete-item", method = RequestMethod.DELETE)
     public ResponseEntity<Item> deleteItemFromDB(HttpSession session, @RequestBody Item item) throws
             PasswordStorage.CannotPerformOperationException {
         String uName = (String) session.getAttribute("userName");
@@ -49,5 +49,5 @@ public class ItemServices {
             }
         }
         return new ResponseEntity<Item>(HttpStatus.FORBIDDEN);
-    }
+    } */
 }

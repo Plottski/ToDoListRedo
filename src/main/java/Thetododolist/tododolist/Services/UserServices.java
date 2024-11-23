@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.ArrayList;
-
 import static Thetododolist.tododolist.Entities.User.isValidUser;
 
 @RestController
@@ -27,6 +25,8 @@ public class UserServices {
             PasswordStorage.CannotPerformOperationException, PasswordStorage.InvalidHashException {
         User userFromDB = users.findByUserName(user.getUserName());
         if (User.userValidation(user,userFromDB,session)) {
+            user.setLoggedIn(true);
+            userFromDB.setLoggedIn(true);
             users.save(userFromDB);
             return new ResponseEntity<User>(userFromDB, HttpStatus.OK);
         }
